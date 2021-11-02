@@ -45,7 +45,9 @@ render() {
         <input onChange = {this.handleChange} value = {this.state.cityName}/>
         <Button  variant="success" onClick={this.handleClick}>Explore!</Button>
         {this.state.location &&<h1>Name : {this.state.location.display_name} Latitude = {this.state.location.lat}, Longitude = {this.state.location.lon}</h1>}
-        {this.state.location &&<img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.location.lat},${this.state.location.lon}&size=300x300`}/>}
+
+        {this.state.location &&<img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.location.lat},${this.state.location.lon}&size=300x300&zoom=11`}/>}
+
         {this.state.error && <Alert variant="danger" onClose={() => this.setState({error: true})} dismissible>
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         <p>
