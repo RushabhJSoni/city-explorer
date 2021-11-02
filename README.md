@@ -3,7 +3,15 @@
 ![Web request response cycle](./public/city.JPG)
 
 
+Name of feature: lat long and static map________________________________
 
+Estimate of time needed to complete: 2 hrs
+
+Start time: 1600
+
+Finish time: 1730
+
+Actual time needed to complete: 1.5 hr 
 
 
 
