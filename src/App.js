@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Button } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
+import Weather from "./Weather.js";
 
 export default class App extends
 Component {
@@ -49,10 +50,9 @@ render() {
 
         {this.state.error && <Alert variant="danger" onClose={() => this.setState({error: true})} dismissible>
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-        <p>
+        </Alert>}
 
-        </p>
-      </Alert>}
+        <Weather weather={this.state.cityName}/>
       </div>
     )
   }
