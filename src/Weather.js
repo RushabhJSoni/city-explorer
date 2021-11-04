@@ -7,22 +7,23 @@ export default class Weather extends Component {
     super(props)
     this.state = {
       weather: {},
-      error: false
+      error: false,
+      
     }
   }
 
   getWeatherConditions = async () => {
-    const link = `${process.env.REACT_APP_SERVER_URL}/weather?city=${this.props.city}`;
+
     try {
-        let response = await axios.get(link)
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.props.lat}&lon=${this.props.lon}`);
+    
         this.setState({weather: response.data[0]});
+        console.log(response);
     } catch(e) {
       this.setState({error: true});
     }
 
   }
-
-  
 
     render() {
       return (
@@ -31,7 +32,7 @@ export default class Weather extends Component {
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
           <button onClick={this.getWeatherConditions}>Get Current Weather!</button>
-          {this.state.weather && <h1>Weather : Min Temp : {this.state.weather.min_temp} Max Temp : {this.state.weather.max_temp} Clouding : {this.state.weather.description}  </h1>}
+          {this.state.weather && <h1> Visibility: {this.state.weather.vis} Wind Direction : {this.state.weather.wind_cdir} Wind Speed: {this.state.weather.wind_spd}  </h1>}
         </div>
       )
     }
