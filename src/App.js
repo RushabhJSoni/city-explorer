@@ -18,8 +18,7 @@ Component {
   handleClick = async () => {
 
     const link = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.cityName}&format=json`;
-    
-
+   
   try {
     let response = await axios.get(link);
     this.setState({location: response.data[0]})
@@ -50,8 +49,10 @@ render() {
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
 
-        <Weather city={this.state.cityName}/>
+        {this.state.location && <Weather lat={this.state.location.lat} lon={this.state.location.lon}/> }
+        
       </div>
     )
+    
   }
 }
