@@ -35,8 +35,6 @@ Component {
    this.setState({cityName: e.target.value})
  }
 
- 
-
 render() {
   return (
       <div>
@@ -48,11 +46,11 @@ render() {
 
         {this.state.location &&<img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.location.lat},${this.state.location.lon}&size=300x300&zoom=11`} alt="map"/>}
 
-        {this.state.error && <Alert variant="danger" onClose={() => this.setState({error: true})} dismissible>
+        {this.state.error && <Alert variant="danger" onClose={() => this.setState({error: false})} dismissible>
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
 
-        <Weather weather={this.state.cityName}/>
+        <Weather city={this.state.cityName}/>
       </div>
     )
   }
