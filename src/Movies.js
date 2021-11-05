@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Alert  from 'react-bootstrap/Alert';
+import SortedList from './SortedList.js'
 
 export default class Weather extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      weather: {},
+      movies: [],
       error: false,
       
     }
   }
 
-  getWeatherConditions = async () => {
+  getMovies = async () => {
 
     try {
-    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.props.lat}&lon=${this.props.lon}`);
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?query=${this.props.q}`);
     
-        this.setState({weather: response.data[0]});
+        this.setState({movies: response.data});
         console.log(response);
     } catch(e) {
       this.setState({error: true});
@@ -31,8 +32,8 @@ export default class Weather extends Component {
           {this.state.error && <Alert variant="danger" onClose={() => this.setState({error: false})} dismissible>
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
-          <button onClick={this.getWeatherConditions}>Get Current Weather!</button>
-          {this.state.weather && <h1> Visibility: {this.state.weather.vis} Wind Direction : {this.state.weather.wind_cdir} Wind Speed: {this.state.weather.wind_spd}  </h1>}
+          <button onClick={this.getMovies}>Get Movies with city name!</button>
+          {this.state.movies && this.state.movies.map(results => <SortedList key={results.id} details={results}/>)}
         </div>
       )
   }
