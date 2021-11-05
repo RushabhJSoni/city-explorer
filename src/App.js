@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 import Weather from "./Weather.js";
+import Movies from "./Movies.js"
 
 export default class App extends
 Component {
@@ -49,7 +50,9 @@ render() {
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
 
-        {this.state.location && <Weather lat={this.state.location.lat} lon={this.state.location.lon}/> }
+        {this.state.location && <Weather lat={this.state.location.lat} lon={this.state.location.lon}/>}
+
+        {this.state.location && <Movies q={this.state.cityName}/>}
         
       </div>
     )
