@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Alert  from 'react-bootstrap/Alert';
-import SortedList from './SortedList.js'
+import Movie from './Movie.js'
+import { Container, Row } from 'react-bootstrap';
 
 export default class Weather extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class Weather extends Component {
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         </Alert>}
           <button onClick={this.getMovies}>Get Movies with city name!</button>
-          {this.state.movies && this.state.movies.map(results => <SortedList key={results.id} details={results}/>)}
+          {this.state.movies && <Container><Row sm={3}>{this.state.movies.map(results => <Movie key={results.id} details={results}/>)}</Row></Container>} 
         </div>
       )
   }
