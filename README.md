@@ -3,7 +3,7 @@
 ![Web request response cycle](./public/city.JPG)
 
 
-Name of feature: lat long and static map________________________________
+Name of feature: lat long and static map
 
 Estimate of time needed to complete: 2 hrs
 
@@ -11,8 +11,33 @@ Start time: 1600
 
 Finish time: 1730
 
-Actual time needed to complete: 1.5 hr 
 
+![Web request response cycle](./public/server flow.jpg)
+
+Actual time needed to complete: 1.5 hrs 
+
+Name of feature: Weather functionality
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 1600
+
+Finish time: 1800
+
+
+![Web request response cycle](./public/cache.jpg)
+
+Actual time needed to complete: 2 hrs 
+
+Name of feature: Weather + movie functionality with server and cache
+
+Estimate of time needed to complete: 2.5 hrs
+
+Start time: 1600
+
+Finish time: 1830
+
+Actual time needed to complete: 2.5 hrs
 
 
 

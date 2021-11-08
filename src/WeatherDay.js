@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class OneDayWx extends Component {
+export default class WeatherDay extends Component {
 
     render() {
         return (
